@@ -16,7 +16,7 @@ app = falcon.API()
 things = ThingsResource()
 
 # things will handle all requests to the '/things' URL path
-app.add_route('/quote', things)
+app.add_route('app/quote', things)
 
 
 
