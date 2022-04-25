@@ -17,3 +17,7 @@ In falcon_app folder:
 ## Run container
 
 ` docker run -p 8000:8000 de0f25a204c2 `
+
+### Confirm in browser
+
+` http://0.0.0.0:8000/quote `
