@@ -13,11 +13,17 @@ a_dict  # {}
 
 
 # union operations ( python 3.9 )
-first  = { "name": "Vannia", "occupation":"developer"}
-second = { "location": "California", "hobby": "running, taekwondo, sewing"}
+first = {"name": "Vannia", "occupation": "developer"}
+second = {"location": "California", "hobby": "running, taekwondo, sewing"}
 merged = first | second
 merged
 
+
+# mapping
+scores = {"joe": 85, "jane": 90, "alex": 80, "beth": 82}
+students = ["beth", "alex", "jane", "joe"]
+# sort students by scores, highest first
+sorted(students, key=scores.get, reverse=True)
 
 
 from collections import defaultdict
@@ -97,3 +103,26 @@ def factory(arg):
 def_dict = defaultdict(lambda: factory("default value"))
 def_dict["missing"]
 # if you try to access or modify a missing key -> 'DEFAULT VALUE'
+
+
+# sort list of dict - do not mutate it
+animals = [
+    {"type": "cat", "name": "Stephanie", "age": 8},
+    {"type": "dog", "name": "Devo", "age": 3},
+    {"type": "rhino", "name": "Moe", "age": 5},
+]
+sorted(animals, key=lambda animal: animal["age"])
+
+# actually chnage the list
+animals.sort(key=lambda animal: animal["age"])
+
+
+from collections import defaultdict
+
+# another example
+
+# add default values
+student_grades = defaultdict(list, {"Ivan": [90, 80, 70], "Hugo": [90, 90, 90]})
+# add default value w lambda
+student_score = defaultdict(lambda: 75)
+student_score["Erick"] += 10
