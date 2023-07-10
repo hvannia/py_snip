@@ -11,7 +11,7 @@ def stack():
     return Stack()
 
 
-def test_constructor(self):
+def test_constructor():
     s = Stack()
     assert isinstance(s, Stack)
     assert len(s) == 0
@@ -29,4 +29,4 @@ def test_pop(stack):
     stack.push("hello")
     assert stack.pop() == "world"
     assert stack.pop() == "hello"
-    assert stack.pop() == None
+    assert stack.pop() is None
