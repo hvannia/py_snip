@@ -21,7 +21,19 @@ print(compare)
 
 # function to make a POST HTTPS request to endpoint, including a Token header
 # include data in in the request body
+import requests
 def make_https_request(endpoint, token, data):
     headers = {'Token': token}
     response = requests.post(endpoint, headers=headers, data=data)
     return response
+
+
+# function that reads each line of  a log file, looks for the word "document_id" and adds the value to a list
+def get_document_ids(log_file):
+    document_ids = []
+    with open(log_file) as f:
+        for line in f:
+            if 'document_id' in line:
+                document_ids.append(line.split('document_id=')[1].split(' ')[0])
+    return document_ids
+
